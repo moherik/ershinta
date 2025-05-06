@@ -13,6 +13,8 @@ gsap.timeline().to(".scroll-to", {
   yoyo: true,
 });
 
+ScrollTrigger.refresh();
+
 const openTl = gsap.timeline();
 
 openTl
@@ -24,13 +26,19 @@ openTl
     scrollTrigger: {
       trigger: ".wrapper",
       start: "top top",
-      end: "+=150%",
+      end: "+=200%",
       pin: true,
       scrub: true,
       onUpdate: (self) => {
         document.querySelector(".cover-img").style.filter = `blur(${
           self.progress * 5
         }px)`;
+      },
+      onLeave: () => {
+        document.querySelector(".image-container").style.display = "none";
+      },
+      onEnterBack: () => {
+        document.querySelector(".image-container").style.display = "block";
       },
     },
   })
@@ -43,7 +51,7 @@ openTl
       scrollTrigger: {
         trigger: ".cover-img",
         start: "top top",
-        end: "+=150%",
+        end: "+=200%",
         scrub: true,
       },
     },
@@ -52,9 +60,8 @@ openTl
   .to(".scroll-to", {
     opacity: -1,
     scrollTrigger: {
-      trigger: ".section-hero",
       start: "top top",
-      end: "+=150%",
+      end: "+=50%",
       scrub: true,
       pin: true,
     },
@@ -75,23 +82,26 @@ nextTl.add([
     scale: 1.4,
     display: "none",
   }),
-  gsap.to(".brides-name .top", {
-    y: 20,
+  gsap.to(".brides-name", {
     opacity: 1,
     display: "block",
     transformOrigin: "center center",
     ease: "power1.inOut",
   }),
-  gsap.to(".brides-name .center", {
+  gsap.to(".brides-name .two-of-us", {
+    y: 20,
     opacity: 1,
-    display: "block",
+    scale: 1.1,
+    transformOrigin: "center center",
+    ease: "power1.inOut",
+  }),
+  gsap.to(".brides-name .top", {
+    y: 40,
     transformOrigin: "center center",
     ease: "power1.inOut",
   }),
   gsap.to(".brides-name .bottom", {
     y: -20,
-    opacity: 1,
-    display: "block",
     transformOrigin: "center center",
     ease: "power1.inOut",
   }),
