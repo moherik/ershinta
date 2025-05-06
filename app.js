@@ -24,7 +24,7 @@ openTl
     scrollTrigger: {
       trigger: ".wrapper",
       start: "top top",
-      end: "+=50%",
+      end: "+=150%",
       pin: true,
       scrub: true,
       onUpdate: (self) => {
@@ -43,7 +43,7 @@ openTl
       scrollTrigger: {
         trigger: ".cover-img",
         start: "top top",
-        end: "+=50%",
+        end: "+=150%",
         scrub: true,
       },
     },
@@ -54,7 +54,7 @@ openTl
     scrollTrigger: {
       trigger: ".section-hero",
       start: "top top",
-      end: "+=50%",
+      end: "+=150%",
       scrub: true,
       pin: true,
     },
@@ -64,7 +64,7 @@ const nextTl = gsap.timeline({
   scrollTrigger: {
     trigger: ".section.hero",
     start: "center center",
-    end: "+=50%",
+    end: "+=150%",
     scrub: true,
     markers: true,
   },
