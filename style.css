@@ -1,22 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
+  background-color: rgb(240, 234, 223);
   font-family: "Zain", sans-serif;
   font-weight: 400;
   font-style: normal;
-
-  height: 100vh;
-  margin: 0 auto;
-  display: grid;
-  place-items: center;
-  max-width: 450px;
-  /* overflow: hidden; */
-  position: relative;
-}
-
-.wrapper {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
 }
 
 .font-stylish {
@@ -26,49 +18,103 @@ body {
   font-size: 2rem;
 }
 
-.cover {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  height: 100vh;
-  position: absolute;
-  left: 0 !important;
-  right: 0;
-  top: 0;
-  bottom: 0;
+.wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  border: solid 1px #ddd;
+  border-top: none;
+  border-bottom: none;
+  background-color: #fff;
+  overflow-x: hidden;
 }
 
-.cover img {
-  /* max-width: 400px;   */
+.wrapper,
+.content {
+  position: relative;
+  z-index: 1;
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  height: 100vh;
+  overflow-x: hidden;
 }
 
-.content img {
-  /* height: 100vh;
+.content .section {
   width: 100%;
-  object-fit: cover; */
+  height: 100vh;
+  position: relative;
+}
+
+.content .section.hero {
+  background-image: url("./hero2.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffc0cb69;
+}
+
+.initial-name {
+  position: absolute;
+  width: 60px;
+  line-height: 1.4rem;
+}
+
+.brides-name {
+  text-align: center;
+  line-height: 1.2rem;
+}
+.brides-name .bride-man {
+  margin-top: 20px;
+}
+.brides-name .center {
+  margin: 50px 0px 60px 0px;
+}
+.brides-name .top,
+.brides-name .center,
+.brides-name .bottom {
+  display: none;
+  opacity: 0;
+}
+
+.image-container {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  perspective: 500px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .scroll-to {
   position: absolute;
-  bottom: 4rem;
+  top: 90vh;
   left: 0;
   right: 0;
   text-align: center;
   font-size: 1.2rem;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
+  z-index: 99;
 }

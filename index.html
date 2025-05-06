@@ -12,109 +12,84 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="reset.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="reset.css" type="text/css" /> -->
     <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
   <body>
-    <div class="wrapper">
-      <div class="content">
-        <img src="./inside.jpg" width="250px" />
-      </div>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <div class="wrapper">
+          <div class="content">
+            <section class="section hero">
+              <div class="initial-name font-stylish">
+                <h1 style="text-align: left; font-size: 3.5rem">E</h1>
+                <h5 style="text-align: center">&</h5>
+                <h1 style="text-align: right; font-size: 3.5rem">S</h1>
+              </div>
 
-      <div class="cover">
-        <img src="./cover.png" alt="cover" width="100%" />
-      </div>
+              <div class="brides-name">
+                <div class="top">
+                  <p>The wedding of</p>
+                  <div class="bride-man font-stylish">
+                    <h1>Erik</h1>
+                    <br />
+                    <h5>Mohammad Erik Maulana</h5>
+                  </div>
+                </div>
+                <h5 class="center font-stylish">&amp;</h5>
+                <div class="bottom">
+                  <div class="bride-woman font-stylish">
+                    <h1>Shinta</h1>
+                    <br />
+                    <h5>Shinta Nurul Qumairoh</h5>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="section gradient-purple">
+              yeye
+            </section>
+            <section class="section gradient-blue">hehe</section>
+            <section class="section gradient-blue">lala</section>
+          </div>
 
-      <div class="scroll-to">
-        <span>Scroll to Open</span>
-        <svg
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-          class="ionicon"
-          viewBox="0 0 512 512"
-        >
-          <path
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="32"
-            d="M176 262.62L256 342l80-79.38M256 330.97V170"
-          />
-          <path
-            d="M256 64C150 64 64 150 64 256s86 192 192 192 192-86 192-192S362 64 256 64z"
-            fill="none"
-            stroke="currentColor"
-            stroke-miterlimit="10"
-            stroke-width="32"
-          />
-        </svg>
+          <div class="scroll-to">
+            <span>Scroll to Open</span>
+            <svg
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+              class="ionicon"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="32"
+                d="M176 262.62L256 342l80-79.38M256 330.97V170"
+              />
+              <path
+                d="M256 64C150 64 64 150 64 256s86 192 192 192 192-86 192-192S362 64 256 64z"
+                fill="none"
+                stroke="currentColor"
+                stroke-miterlimit="10"
+                stroke-width="32"
+              />
+            </svg>
+          </div>
+
+          <div class="image-container">
+            <img src="./cover.png" class="cover-img" alt="image" />
+          </div>
+        </div>
       </div>
     </div>
   </body>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
 
-  <script>
-    // use a script tag or an external JS file
-    document.addEventListener("DOMContentLoaded", (event) => {
-      gsap.registerPlugin(ScrollTrigger);
-      // gsap code here!
-
-      let tl = gsap.timeline();
-
-      tl.add([
-        gsap.to(".scroll-to", {
-          duration: 1.5,
-          y: -10,
-          repeat: -1,
-          yoyo: true,
-        }),
-        gsap.to(".cover", 2, {
-          scale: 6,
-          // z: 350,
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: ".wrapper",
-            start: "center center",
-            end: "+=1000",
-            scrub: true,
-            pin: true,
-            marker: true,
-            onUpdate: (self) => {
-              document.querySelector(".cover").style.filter = `blur(${
-                self.progress * 5
-              }px)`;
-            },
-          },
-        }),
-        gsap.to(".scroll-to", 2, {
-          opacity: -1,
-          scrollTrigger: {
-            scrub: true,
-            pin: true,
-          },
-        }),
-        gsap.to(".content", 1, {
-          scale: 2.5,
-          // z: 350,
-          ease: "power1.inOut",
-          scrollTrigger: {
-            trigger: ".cover",
-            start: "center center",
-            end: "+=1000",
-            scrub: true,
-            pin: true,
-            onUpdate: (self) => {
-              console.log(self.progress);
-              document.querySelector(".content").style.filter = `blur(100/${
-                self.progress * 5
-              }px)`;
-            },
-          },
-        }),
-      ]);
-    });
-  </script>
+  <script src="app.js"></script>
 </html>
