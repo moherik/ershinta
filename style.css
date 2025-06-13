@@ -9,6 +9,7 @@ body {
   font-family: "Zain", sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 1.2rem;
 }
 
 .font-stylish {
@@ -153,6 +154,7 @@ body {
 }
 
 .profile .bismillah {
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 

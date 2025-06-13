@@ -109,7 +109,7 @@ nextTl.add([
 const profileTl = gsap.timeline({
   scrollTrigger: {
     trigger: ".section .profile",
-    start: "center center",
+    start: "center 60%",
     end: "+=300",
     scrub: 1,
     markers: true,
@@ -118,20 +118,20 @@ const profileTl = gsap.timeline({
 profileTl.add([
   gsap.to(".profile .bismillah", {
     opacity: 1,
-    y: -20,
+    y: -40,
   }),
   gsap.to(".profile .assalamualaikum", {
     opacity: 1,
-    y: -20,
+    y: -40,
   }),
   gsap.to(".profile .greeting", {
     opacity: 1,
-    y: -20,
+    y: -40,
   }),
 
   gsap.to(".profile .profile-name p", {
     opacity: 1,
-    y: -20,
+    y: -40,
   }),
 ]);
 
