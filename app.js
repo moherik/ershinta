@@ -17,6 +17,9 @@ ScrollTrigger.refresh();
 
 const openTl = gsap.timeline();
 
+const coverContainerEl = document.querySelector(".cover-container");
+const coverImgEl = document.querySelector(".cover-img");
+
 openTl
   .to(".cover-img", {
     scale: 2,
@@ -30,15 +33,18 @@ openTl
       pin: true,
       scrub: true,
       onUpdate: (self) => {
-        document.querySelector(".cover-img").style.filter = `blur(${
-          self.progress * 5
-        }px)`;
+        coverImgEl.style.filter = `blur(${self.progress * 5}px)`;
+        if (self.progress > 0.6) {
+          coverContainerEl.style.display = "none";
+        } else {
+          coverContainerEl.style.display = "block";
+        }
       },
       onLeave: () => {
-        document.querySelector(".image-container").style.display = "none";
+        coverContainerEl.style.display = "none";
       },
       onEnterBack: () => {
-        document.querySelector(".image-container").style.display = "block";
+        coverContainerEl.style.display = "block";
       },
     },
   })
@@ -73,36 +79,57 @@ const nextTl = gsap.timeline({
     start: "center center",
     end: "+=150%",
     scrub: true,
-    markers: true,
   },
 });
 nextTl.add([
-  gsap.to(".initial-name", {
-    opacity: 0,
+  gsap.to(".ershinta", {
     scale: 1.4,
-    display: "none",
   }),
-  gsap.to(".brides-name", {
-    opacity: 1,
+  gsap.to(".hero-text .animate", {
+    opacity: 1.2,
     display: "block",
     transformOrigin: "center center",
     ease: "power1.inOut",
   }),
-  gsap.to(".brides-name .two-of-us", {
+  gsap.to(".hero-text .lbl-undangan", {
     y: 20,
-    opacity: 1,
-    scale: 1.1,
-    transformOrigin: "center center",
     ease: "power1.inOut",
   }),
-  gsap.to(".brides-name .top", {
-    y: 40,
-    transformOrigin: "center center",
-    ease: "power1.inOut",
-  }),
-  gsap.to(".brides-name .bottom", {
+  gsap.to(".hero-text .lbl-brides", {
     y: -20,
-    transformOrigin: "center center",
     ease: "power1.inOut",
+  }),
+  gsap.to(".hero-text .lbl-date", {
+    y: -20,
+    ease: "power1.inOut",
+  }),
+]);
+
+const profileTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".section .profile",
+    start: "center center",
+    end: "+=300",
+    scrub: 1,
+    markers: true,
+  },
+});
+profileTl.add([
+  gsap.to(".profile .bismillah", {
+    opacity: 1,
+    y: -20,
+  }),
+  gsap.to(".profile .assalamualaikum", {
+    opacity: 1,
+    y: -20,
+  }),
+  gsap.to(".profile .greeting", {
+    opacity: 1,
+    y: -20,
+  }),
+
+  gsap.to(".profile .profile-name p", {
+    opacity: 1,
+    y: -20,
   }),
 ]);
