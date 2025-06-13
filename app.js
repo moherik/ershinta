@@ -1,7 +1,8 @@
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
 
 let smoother = ScrollSmoother.create({
   smooth: 2,
+  speed: 0.2,
   effects: true,
   normalizeScroll: true,
 });
@@ -133,3 +134,7 @@ profileTl.add([
     y: -20,
   }),
 ]);
+
+document.querySelector(".scroll-to").addEventListener("click", function () {
+  gsap.to(window, { duration: 0.8, scrollTo: 1500 });
+});
