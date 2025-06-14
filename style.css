@@ -5,7 +5,17 @@
 }
 
 body {
-  background-color: rgb(240, 234, 223);
+  background-color: #f2f7e6;
+  opacity: 0.8;
+  background-image: linear-gradient(135deg, #fafafa 25%, transparent 25%),
+    linear-gradient(225deg, #fafafa 25%, transparent 25%),
+    linear-gradient(45deg, #fafafa 25%, transparent 25%),
+    linear-gradient(315deg, #fafafa 25%, #f2f7e6 25%);
+  background-position: 11px 0, 11px 0, 0 0, 0 0;
+  background-size: 22px 22px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+
   font-family: "Zain", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -16,12 +26,10 @@ body {
   font-family: "Sacramento", cursive;
   font-optical-sizing: auto;
   font-style: normal;
-  line-height: 2.5rem;
 }
 
 .btn {
   background: transparent;
-  border: none;
   outline: none;
   border: solid 1px #4b5132;
   color: #4b5132;
@@ -36,6 +44,55 @@ body {
   cursor: pointer;
 }
 
+.opacity-0 {
+  opacity: 0;
+}
+
+nav {
+  max-width: 500px;
+  margin: 0 auto;
+
+  opacity: 0;
+  display: none;
+  position: fixed;
+  bottom: 0px;
+  left: 20px;
+  right: 20px;
+  z-index: 999;
+
+  background: #fefff3;
+  border-radius: 50px;
+  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  background-color: rgb(251 254 234 / 67%);
+  backdrop-filter: blur(25px);
+  border: solid 1px #cdd3b1;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 55px;
+  padding: 0px 20px;
+}
+nav ul li a {
+  color: #4b5132;
+  text-decoration: none;
+  /* padding: 10px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  width: 80px;
+}
+nav ul li.active a {
+  color: #000;
+}
+nav ul li a span {
+  line-height: 1.2rem;
+}
+
 .text-title {
   font-size: 2rem;
 }
@@ -43,11 +100,12 @@ body {
 .wrapper {
   max-width: 500px;
   margin: 0 auto;
-  border: solid 1px #ddd;
   border-top: none;
   border-bottom: none;
   background-color: #fff;
   overflow-x: hidden;
+
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .wrapper,
@@ -65,42 +123,6 @@ body {
   height: 100vh;
   position: relative;
   padding: 20px;
-}
-
-.content .section.hero {
-  background-color: #fbf9dc;
-  background-image: url("https://www.transparenttextures.com/patterns/handmade-paper.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #4b5132;
-}
-
-.hero-text {
-  text-align: center;
-  margin-top: 70px;
-}
-
-.ershinta {
-  margin: 40px 0px;
-}
-
-.hero-text .animate {
-  opacity: 0;
-}
-
-.hero .btn-save-date {
-  margin-top: 4px;
-}
-
-.hero .lbl-undangan {
-  font-size: 1.5rem;
-}
-
-.hero .lbl-brides {
-  font-size: 2.25rem;
 }
 
 .cover-container {
@@ -129,16 +151,82 @@ body {
   left: 0;
   right: 0;
   text-align: center;
-  font-size: 1.2rem;
+}
+
+.click-to-open {
+  font-size: 14px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
   z-index: 99;
+  padding: 4px 10px;
 }
 
+/* Hero section */
+
+.hero {
+  background-color: #eff3e7;
+  background-image: url("https://www.transparenttextures.com/patterns/handmade-paper.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #4b5132;
+}
+
+.hero-text {
+  text-align: center;
+  margin-top: 70px;
+}
+
+.ershinta {
+  margin: 40px 0px;
+}
+
+.hero .btn-save-date {
+  margin-top: 4px;
+  font-size: 1.2rem;
+}
+
+.hero .lbl-undangan {
+  font-size: 1.5rem;
+}
+
+.hero .lbl-brides {
+  font-size: 2.25rem;
+  line-height: 1.5rem;
+}
+
+.hero .dekor-1,
+.hero .dekor-2 {
+  display: block;
+  height: 45vh;
+  width: 45%;
+}
+
+.hero .dekor-1 {
+  position: absolute;
+  top: -10px;
+  right: 25px;
+  background: url(./assets/dekorasi-bungah.webp) no-repeat;
+  background-size: contain;
+  transform: scale(-1);
+}
+
+.hero .dekor-2 {
+  position: absolute;
+  bottom: -10px;
+  left: 25px;
+  background: url(./assets/dekorasi-bungah.webp) no-repeat;
+  background-size: contain;
+}
+
+/* Profile section */
+
 .profile {
-  background-color: #faf0eb;
+  background-color: #fff;
   background-image: url("https://www.transparenttextures.com/patterns/handmade-paper.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   text-align: center;
@@ -149,12 +237,7 @@ body {
   color: #4b5132;
 }
 
-.profile .opacity-0 {
-  opacity: 0;
-}
-
 .profile .bismillah {
-  margin-top: 40px;
   margin-bottom: 20px;
 }
 
@@ -162,16 +245,14 @@ body {
   margin: 20px 0px;
 }
 
+.profile .profile-name .text-title {
+  font-size: 3rem;
+  color: #666a70;
+  font-weight: 600;
+}
+
 .profile .profile-name {
   margin-top: 40px;
-}
-
-.profile .profile-name .text-title {
-  font-size: 2.5rem;
-}
-
-.profile .profile-name p {
-  opacity: 0;
 }
 
 .profile .profile-name p.fullname {
@@ -179,11 +260,22 @@ body {
   line-height: 1.2rem;
   margin-top: 10px;
 }
-.profile .profile-name p.parent-name {
-  /* font-size: 1.2rem; */
-}
 
 .profile-name .dan {
   font-size: 2rem;
-  margin: 10px 0px;
+  margin: 20px 0px;
+  background: url("./assets/dekor-1.webp") no-repeat center;
+  background-size: 150px;
+}
+
+/* Event section */
+
+.event {
+  background-color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #4b5132;
 }

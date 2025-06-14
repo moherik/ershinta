@@ -2,12 +2,15 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
 
 let smoother = ScrollSmoother.create({
   smooth: 2,
-  speed: 0.2,
   effects: true,
   normalizeScroll: true,
 });
 
-gsap.timeline().to(".scroll-to", {
+document.querySelector(".click-to-open").addEventListener("click", function () {
+  gsap.to(window, { duration: 1, scrollTo: 1500 });
+});
+
+gsap.timeline().to(".click-to-open", {
   duration: 1.2,
   y: -4,
   repeat: -1,
@@ -16,13 +19,11 @@ gsap.timeline().to(".scroll-to", {
 
 ScrollTrigger.refresh();
 
-const openTl = gsap.timeline();
-
 const coverContainerEl = document.querySelector(".cover-container");
 const coverImgEl = document.querySelector(".cover-img");
 
-openTl
-  .to(".cover-img", {
+const openTl = gsap.timeline([
+  gsap.to(".cover-img", {
     scale: 2,
     z: 350,
     transformOrigin: "center center",
@@ -35,7 +36,7 @@ openTl
       scrub: true,
       onUpdate: (self) => {
         coverImgEl.style.filter = `blur(${self.progress * 5}px)`;
-        if (self.progress > 0.6) {
+        if (self.progress > 0.8) {
           coverContainerEl.style.display = "none";
         } else {
           coverContainerEl.style.display = "block";
@@ -48,8 +49,8 @@ openTl
         coverContainerEl.style.display = "block";
       },
     },
-  })
-  .to(
+  }),
+  gsap.to(
     ".section.hero",
     {
       scale: 1.4,
@@ -63,8 +64,8 @@ openTl
       },
     },
     "<"
-  )
-  .to(".scroll-to", {
+  ),
+  gsap.to(".click-to-open", {
     opacity: -1,
     scrollTrigger: {
       start: "top top",
@@ -72,7 +73,15 @@ openTl
       scrub: true,
       pin: true,
     },
-  });
+  }),
+]);
+
+const navTl = gsap.timeline({ paused: true }).to("nav", {
+  opacity: 1,
+  y: -20,
+  duration: 0.2,
+  display: "block",
+});
 
 const nextTl = gsap.timeline({
   scrollTrigger: {
@@ -80,61 +89,71 @@ const nextTl = gsap.timeline({
     start: "center center",
     end: "+=150%",
     scrub: true,
+    onLeave: function () {
+      navTl.play();
+    },
+    onEnterBack: function () {
+      navTl.reverse();
+    },
   },
 });
 nextTl.add([
-  gsap.to(".ershinta", {
-    scale: 1.4,
+  gsap.to(".hero .hero-text", {
+    y: -40,
+    ease: "power1.inOut",
   }),
-  gsap.to(".hero-text .animate", {
-    opacity: 1.2,
+  gsap.to(".hero .ershinta", {
+    scale: 1.5,
+    duration: 0.8,
+  }),
+  gsap.to(".hero .dekor-1", {
+    scale: 1.5,
+    x: -60,
+    y: -100,
+    duration: 0.8,
+    ease: "power1.inOut",
+  }),
+  gsap.to(".hero .dekor-2", {
+    scale: 1.5,
+    x: 50,
+    y: 100,
+    duration: 0.5,
+    ease: "power1.inOut",
+  }),
+  gsap.from(".hero .from-top", {
+    opacity: 0,
+    y: -20,
+    ease: "power1.inOut",
     display: "block",
     transformOrigin: "center center",
-    ease: "power1.inOut",
   }),
-  gsap.to(".hero-text .lbl-undangan", {
+  gsap.from(".hero .from-bottom", {
+    opacity: 0,
     y: 20,
     ease: "power1.inOut",
-  }),
-  gsap.to(".hero-text .lbl-brides", {
-    y: -20,
-    ease: "power1.inOut",
-  }),
-  gsap.to(".hero-text .lbl-date", {
-    y: -20,
-    ease: "power1.inOut",
+    display: "block",
+    transformOrigin: "center center",
   }),
 ]);
 
 const profileTl = gsap.timeline({
   scrollTrigger: {
-    trigger: ".section .profile",
-    start: "center 60%",
-    end: "+=300",
+    start: "center 80%",
+    end: "+=800",
     scrub: 1,
-    markers: true,
   },
 });
 profileTl.add([
-  gsap.to(".profile .bismillah", {
-    opacity: 1,
-    y: -40,
+  gsap.from(".profile .from-bottom", {
+    opacity: 0,
+    y: 60,
   }),
-  gsap.to(".profile .assalamualaikum", {
-    opacity: 1,
-    y: -40,
+  gsap.from(".profile .from-left", {
+    opacity: 0,
+    x: -60,
   }),
-  gsap.to(".profile .greeting", {
-    opacity: 1,
-    y: -40,
-  }),
-
-  gsap.to(".profile .profile-name p", {
-    opacity: 1,
-    y: -40,
+  gsap.from(".profile .from-right", {
+    opacity: 0,
+    x: 60,
   }),
 ]);
-
-document.querySelector(".scroll-to").addEventListener("click", function () {
-  gsap.to(window, { duration: 0.8, scrollTo: 1500 });
-});
