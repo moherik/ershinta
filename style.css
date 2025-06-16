@@ -22,10 +22,19 @@ body {
   font-size: 1.2rem;
 }
 
+@font-face {
+  font-family: Malibu;
+  src: url("./assets/Malibu.woff");
+}
+
 .font-stylish {
-  font-family: "Sacramento", cursive;
+  font-family: "Malibu", cursive;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+.font-bold {
+  font-weight: 600;
 }
 
 .btn {
@@ -191,12 +200,12 @@ nav ul li a span {
 }
 
 .hero .lbl-undangan {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .hero .lbl-brides {
-  font-size: 2.25rem;
-  line-height: 1.5rem;
+  font-size: 3rem;
+  line-height: 2rem;
 }
 
 .hero .dekor-1,
@@ -246,9 +255,8 @@ nav ul li a span {
 }
 
 .profile .profile-name .text-title {
-  font-size: 3rem;
-  color: #666a70;
-  font-weight: 600;
+  font-size: 5rem;
+  color: #85872d;
 }
 
 .profile .profile-name {
@@ -271,11 +279,100 @@ nav ul li a span {
 /* Event section */
 
 .event {
-  background-color: #fff;
+  background-color: #f6f6f6;
+  background-image: url("https://www.transparenttextures.com/patterns/handmade-paper.png");
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #4b5132;
+}
+
+.event .event-dekor {
+  margin-top: -60px;
+  margin-bottom: 20px;
+}
+
+.event .event-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+.event .event-item .card:not(:last-child)::after {
+  content: "";
+  border: solid 2px #cdcf8b;
+  height: 100px;
+  position: absolute;
+  top: 100%;
+}
+
+.event-item .card {
+  width: 100%;
+  border: solid 1px #ddd;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 20px;
+}
+
+.event-item .card .actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-item .card .btn {
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.event-item .card h1 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  color: #4b5132;
+  font-weight: normal;
+}
+
+.event-item .card p.tanggal {
+  font-size: 1.3rem;
+}
+
+.event-item .card p.lokasi {
+  line-height: 1rem;
+}
+
+.thread {
+  padding: 20px;
+}
+
+/* End Section */
+
+.end-section {
+  margin-bottom: 100px;
+  text-align: center;
+  padding: 20px;
+}
+
+.my-statement {
+  margin-top: 20px;
+}
+
+.my-statement p {
+  padding: 0px;
+  margin: 0px;
+  line-height: 1.2rem;
+}
+
+.tenor-gif-embed {
+  border-radius: 15px;
+  overflow: hidden;
 }

@@ -157,3 +157,23 @@ profileTl.add([
     x: 60,
   }),
 ]);
+
+const eventTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".event",
+    start: "200% 80%",
+    end: "+=500",
+    scrub: 1,
+    markers: true,
+  },
+});
+eventTl.add([
+  gsap.from(".event .event-dekor", {
+    opacity: 0,
+    y: -60,
+  }),
+  gsap.from(".event .card", {
+    opacity: 0,
+    y: 60,
+  }),
+]);
