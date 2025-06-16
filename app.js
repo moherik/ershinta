@@ -93,7 +93,6 @@ const nextTl = gsap.timeline({
     },
     onEnterBack: function () {
       navTl.reverse();
-      ScrollTrigger.refresh();
     },
   },
 });
