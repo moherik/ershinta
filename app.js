@@ -89,7 +89,6 @@ const nextTl = gsap.timeline({
     scrub: true,
     onLeave: function () {
       navTl.play();
-      ScrollTrigger.refresh();
     },
     onEnterBack: function () {
       navTl.reverse();
