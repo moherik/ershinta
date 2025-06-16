@@ -129,7 +129,7 @@ nav ul li a span {
 
 .content .section {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   padding: 20px;
 }
@@ -257,6 +257,7 @@ nav ul li a span {
 .profile .profile-name .text-title {
   font-size: 5rem;
   color: #85872d;
+  line-height: 4rem;
 }
 
 .profile .profile-name {

@@ -17,8 +17,6 @@ gsap.timeline().to(".click-to-open", {
   yoyo: true,
 });
 
-ScrollTrigger.refresh();
-
 const coverContainerEl = document.querySelector(".cover-container");
 const coverImgEl = document.querySelector(".cover-img");
 
@@ -91,9 +89,11 @@ const nextTl = gsap.timeline({
     scrub: true,
     onLeave: function () {
       navTl.play();
+      ScrollTrigger.refresh();
     },
     onEnterBack: function () {
       navTl.reverse();
+      ScrollTrigger.refresh();
     },
   },
 });
@@ -161,7 +161,7 @@ profileTl.add([
 const eventTl = gsap.timeline({
   scrollTrigger: {
     trigger: ".event",
-    start: "200% 80%",
+    start: "center 80%",
     end: "+=500",
     scrub: 1,
     markers: true,
